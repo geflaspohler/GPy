@@ -21,8 +21,6 @@ class Local(Stationary):
     def __init__(self, input_dim, variance=1., lengthscale=None, ARD=False, active_dims=None, name = 'local', useGPU = _support_GPU, inv_l = False):
         super(Local, self).__init__(input_dim, variance, lengthscale, ARD, active_dims, name, useGPU = useGPU)
 
-
-    
     def K_of_r(self, r):
         for i in xrange(r.shape[0]):
             for j in xrange(r.shape[1]):
@@ -31,7 +29,6 @@ class Local(Stationary):
                     r[i, j] = ((2.0 * math.pi - element) * (1 + math.cos(element) * 0.5) + 1.5 * math.sin(element)) / (3.0 * math.pi)
                 else:
                     r[i, j] = 0
-
         return r
             
 
